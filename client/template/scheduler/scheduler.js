@@ -1,12 +1,12 @@
-Template.doctorAction.events({
+Template.schedulerAction.events({
     'click .jsUpdate': function () {
-        FlowRouter.go('doctorUpdate', {id: this._id});
+        FlowRouter.go('schedulerUpdate', {id: this._id});
     },
     'click .jsRemove': function () {
         var self = this;
         alertify.confirm("Are you sure want to delete?",
             function () {
-                Collection.Doctor.remove({_id: self._id}); /// remove by _id?
+                Collection.Scheduler.remove({_id: self._id}); /// remove by _id?
                 alertify.success('Deleted');
             },
             function () {
@@ -14,37 +14,37 @@ Template.doctorAction.events({
             });
     }
 });
-Template.doctorUpdate.helpers({
+Template.schedulerUpdate.helpers({
     data: function () {
         var id = FlowRouter.getParam('id');
-        var doctor = Collection.Doctor.findOne({_id: id});
-        return doctor;
+        var scheduler = Collection.Scheduler.findOne({_id: id});
+        return scheduler;
     }
 });
 //hook
 AutoForm.hooks({
-        doctorInsert:{//id autoform
+        schedulerInsert:{//id autoform
             before:{
                 insert:function(doc){
-                    doc._id=idGenerator.gen(Collection.Doctor, 3);
+                    doc._id=idGenerator.gen(Collection.Scheduler, 3);
                     return doc;
                 }
             },
             //    onSuccess(formType, id){
             //        //Bert.Alert('Successfully Added', 'success', 'growl-top-right');
             //        alertify.alert('Successfully Added');
-            //        FlowRouter.go('doctor');
+            //        FlowRouter.go('scheduler');
             //    },
             //    onError(formType, error){
             //        alertify.error(error.message);
             //        //Bert.alert(error.message, 'danger', 'growl-top-right');
             //    }
             //},
-            //doctorUpdate:{//id autoform
+            //schedulerUpdate:{//id autoform
             //    onSuccess(formType, id){
             //        //Bert.Alert('Successfully Added', 'success', 'growl-top-right');
             //        alertify.alert('Successfully Added');
-            //        FlowRouter.go('doctor');
+            //        FlowRouter.go('scheduler');
             //    },
             //    onError(formType, error){
             //        alertify.error(error.message);

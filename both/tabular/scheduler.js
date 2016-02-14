@@ -1,6 +1,6 @@
-TabularTables.Patient = new Tabular.Table({
-    name: "Patient",
-    collection: Collection.Patient,
+TabularTables.Scheduler = new Tabular.Table({
+    name: "Scheduler",
+    collection: Collection.Scheduler,
     columns: [
         {data: "_id", title: "ID"},
         {data: "name", title: "Name"},
@@ -9,7 +9,7 @@ TabularTables.Patient = new Tabular.Table({
         {data: "telephone", title: "Telephone"},
         {
             title: "Action",
-            tmpl: Meteor.isClient && Template.patientAction
+            tmpl: Meteor.isClient && Template.schedulerAction
         }
     ]
 });

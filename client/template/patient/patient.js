@@ -6,7 +6,7 @@ Template.patientAction.events({
         var self = this;
         alertify.confirm("Are you sure want to delete?",
             function () {
-                Collection.Student.remove({_id: self._id}); /// remove by _id?
+                Collection.Patient.remove({_id: self._id}); /// remove by _id?
                 alertify.success('Deleted');
             },
             function () {
@@ -17,7 +17,7 @@ Template.patientAction.events({
 Template.patientUpdate.helpers({
     data: function () {
         var id = FlowRouter.getParam('id');
-        var patient = Collection.Student.findOne({_id: id});
+        var patient = Collection.Patient.findOne({_id: id});
         return patient;
     }
 });

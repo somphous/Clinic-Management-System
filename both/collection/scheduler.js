@@ -1,5 +1,5 @@
-Collection.Patient = new Mongo.Collection('patient');
-Schema.Patient = new SimpleSchema({
+Collection.Scheduler = new Mongo.Collection('scheduler');
+Schema.Scheduler = new SimpleSchema({
     name: {
         type: String,
         label: "Name"
@@ -20,6 +20,7 @@ Schema.Patient = new SimpleSchema({
     age: {
         type: Number,
         label: "Age",
+        optional: true
     },
     telephone: {
         type: Number,
@@ -27,4 +28,4 @@ Schema.Patient = new SimpleSchema({
         optional: true
     }
 });
-Collection.Patient.attachSchema(Schema.Patient);
+Collection.Scheduler.attachSchema(Schema.Scheduler);

@@ -9,7 +9,7 @@ TabularTables.Doctor = new Tabular.Table({
         {data: "telephone", title: "Telephone"},
         {
             title: "Action",
-            tmpl: Meteor.isClient && Template.patientAction
+            tmpl: Meteor.isClient && Template.doctorAction
         }
     ]
 });
