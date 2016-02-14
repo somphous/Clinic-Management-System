@@ -1,0 +1,63 @@
+<!--index-->
+<template name="doctor">
+    <h2 class="page-header">Doctor</h2>
+    <p>
+        <a href="{{pathFor 'doctorInsert'}}" class="btn btn-primary">Add New</a>
+    </p>
+    {{> tabular table=TabularTables.Doctor class="table table-striped table-bordered table-condensed"}}
+</template>
+<!--insert-->
+<template name="doctorInsert">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <legend>Doctor Insert</legend>
+        </div>
+        <div class="panel-body">
+            {{#autoForm collection="Collection.Doctor" id="doctorInsert" type="insert"}}
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{>afQuickField name= "name"}}
+                            {{>afQuickField name= "gender"}}
+                        </div>
+                        <div class="col-md-6">
+                            {{>afQuickField name= "specialize"}}
+                            {{>afQuickField name= "telephone"}}
+                        </div>
+                    </div>
+                </fieldset>
+                <Button type="submit" class="btn btn-primary fa fa-save"> Save</Button>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>
+<!--update-->
+<template name="doctorUpdate">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <legend>Doctor Update</legend>
+        </div>
+        <div class="panel-body">
+            {{#autoForm collection="Collection.Doctor" doc=data id="doctorUpdate" type="update"}}
+                <fieldset>
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{>afQuickField name= "name"}}
+                            {{>afQuickField name= "gender"}}
+                        </div>
+                        <div class="col-md-6">
+                            {{>afQuickField name= "birthDate"}}
+                            {{>afQuickField name= "telephone"}}
+                        </div>
+                    </div>
+                </fieldset>
+                <Button type="submit" class="btn btn-primary fa fa-save"> Save</Button>
+            {{/autoForm}}
+        </div>
+    </div>
+</template>
+<!--action-->
+<template name='doctorAction'>
+    <button class='jsUpdate fa fa-pencil btn btn-primary'></button>
+    <button class='jsRemove fa fa-remove btn btn-danger'></button>
+</template>

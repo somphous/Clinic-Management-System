@@ -1,5 +1,5 @@
-Collection.Patient = new Mongo.Collection('patient');
-Schema.Patient = new SimpleSchema({
+Collection.Doctor = new Mongo.Collection('doctor');
+Schema.Doctor = new SimpleSchema({
     name: {
         type: String,
         label: "Name"
@@ -17,10 +17,14 @@ Schema.Patient = new SimpleSchema({
             }
         }
     },
+    specialize: {
+        type: String,
+        label: "Specialize"
+    },
     telephone: {
         type: Number,
         label: "Telephone",
         optional: true
     }
 });
-Collection.Patient.attachSchema(Schema.Patient);
+Collection.Doctor.attachSchema(Schema.Doctor);

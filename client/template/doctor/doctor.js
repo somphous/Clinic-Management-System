@@ -1,6 +1,6 @@
-Template.patientAction.events({
+Template.doctorAction.events({
     'click .jsUpdate': function () {
-        FlowRouter.go('patientUpdate', {id: this._id});
+        FlowRouter.go('doctorUpdate', {id: this._id});
     },
     'click .jsRemove': function () {
         var self = this;
@@ -14,16 +14,16 @@ Template.patientAction.events({
             });
     }
 });
-Template.patientUpdate.helpers({
+Template.doctorUpdate.helpers({
     data: function () {
         var id = FlowRouter.getParam('id');
-        var patient = Collection.Student.findOne({_id: id});
-        return patient;
+        var doctor = Collection.Student.findOne({_id: id});
+        return doctor;
     }
 });
 //hook
 AutoForm.hooks({
-        patientInsert:{//id autoform
+        doctorInsert:{//id autoform
             before:{
                 insert:function(doc){
                     doc._id=idGenerator.gen(Collection.Patient, 3);
@@ -33,18 +33,18 @@ AutoForm.hooks({
             //    onSuccess(formType, id){
             //        //Bert.Alert('Successfully Added', 'success', 'growl-top-right');
             //        alertify.alert('Successfully Added');
-            //        FlowRouter.go('patient');
+            //        FlowRouter.go('doctor');
             //    },
             //    onError(formType, error){
             //        alertify.error(error.message);
             //        //Bert.alert(error.message, 'danger', 'growl-top-right');
             //    }
             //},
-            //patientUpdate:{//id autoform
+            //doctorUpdate:{//id autoform
             //    onSuccess(formType, id){
             //        //Bert.Alert('Successfully Added', 'success', 'growl-top-right');
             //        alertify.alert('Successfully Added');
-            //        FlowRouter.go('patient');
+            //        FlowRouter.go('doctor');
             //    },
             //    onError(formType, error){
             //        alertify.error(error.message);
